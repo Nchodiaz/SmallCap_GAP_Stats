@@ -212,7 +212,15 @@ const PriceChart = ({
 };
 
 // Custom tooltip component for the chart
-const CustomTooltip = ({ active, payload, label, viewType }) => {
+const CustomTooltip = ({
+  active,
+  payload,
+  viewType,
+}: {
+  active?: boolean;
+  payload?: Array<{ payload: any }>;
+  viewType: "price" | "percent";
+}) => {
   if (active && payload && payload.length) {
     const data = payload[0].payload;
     const formattedTime = new Date(data.time).toLocaleTimeString([], {
